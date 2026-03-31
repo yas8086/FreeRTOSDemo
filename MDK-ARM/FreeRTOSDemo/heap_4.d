@@ -1,8 +1,8 @@
 .\freertosdemo\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c
-.\freertosdemo\heap_4.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\freertosdemo\heap_4.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\freertosdemo\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-.\freertosdemo\heap_4.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\freertosdemo\heap_4.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\freertosdemo\heap_4.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\freertosdemo\heap_4.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\freertosdemo\heap_4.o: ../Core/Inc/FreeRTOSConfig.h
 .\freertosdemo\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 .\freertosdemo\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

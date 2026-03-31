@@ -16,7 +16,8 @@
 ##### 2.1 打开Keil项目
 ![image](https://github.com/yas8086/FreeRTOSDemo/blob/main/img/2.1.png)
 ##### 2.2 修改项目名
-![image](https://github.com/yas8086/FreeRTOSDemo/blob/main/img/2.2.png)
+![image](https://github.com/yas8086/FreeRTOSDemo/blob/main/img/2.2.1.png)
+![image](https://github.com/yas8086/FreeRTOSDemo/blob/main/img/2.2.2.png)
 ##### 2.3 修改output
 ![image](https://github.com/yas8086/FreeRTOSDemo/blob/main/img/2.3.1.png)
 ![image](https://github.com/yas8086/FreeRTOSDemo/blob/main/img/2.3.2.png)

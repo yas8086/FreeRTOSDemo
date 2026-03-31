@@ -1,8 +1,8 @@
 .\freertosdemo\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/list.c
-.\freertosdemo\list.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\freertosdemo\list.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\freertosdemo\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-.\freertosdemo\list.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\freertosdemo\list.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\freertosdemo\list.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\freertosdemo\list.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\freertosdemo\list.o: ../Core/Inc/FreeRTOSConfig.h
 .\freertosdemo\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 .\freertosdemo\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

@@ -8,14 +8,14 @@
 .\freertosdemo\i2c.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
 .\freertosdemo\i2c.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h
 .\freertosdemo\i2c.o: ../Drivers/CMSIS/Include/core_cm3.h
-.\freertosdemo\i2c.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\freertosdemo\i2c.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\freertosdemo\i2c.o: ../Drivers/CMSIS/Include/cmsis_version.h
 .\freertosdemo\i2c.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 .\freertosdemo\i2c.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 .\freertosdemo\i2c.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
 .\freertosdemo\i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 .\freertosdemo\i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-.\freertosdemo\i2c.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\freertosdemo\i2c.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\freertosdemo\i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
 .\freertosdemo\i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
 .\freertosdemo\i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h
@@ -26,6 +26,8 @@
 .\freertosdemo\i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
 .\freertosdemo\i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 .\freertosdemo\i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
+.\freertosdemo\i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_sram.h
+.\freertosdemo\i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_fsmc.h
 .\freertosdemo\i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
 .\freertosdemo\i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 .\freertosdemo\i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h

@@ -25,10 +25,13 @@
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
+#include "fsmc.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "./BSP/LCD/lcd.h"
+#include "./BSP/TOUCH/touch.h"
+#include "./SYSTEM/delay/delay.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -88,19 +91,33 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+	DWT_Init();
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_TIM1_Init();
   MX_TIM2_Init();
   MX_USART1_Init();
   MX_CAN_Init();
   MX_I2C1_Init();
+  MX_FSMC_Init();
+  MX_TIM8_Init();
   /* USER CODE BEGIN 2 */
-
+	
+	lcd_init();
+	lcd_display_on();
+	lcd_clear(RED);
+  HAL_GPIO_WritePin(LCD_BL_GPIO_Port, LCD_BL_Pin, GPIO_PIN_SET);
+	
+	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_1);
+	
+	/* ³õÊ¼»¯´¥ÃþÆÁ */
+	if (tp_init() == 0) {
+		printf("Touch screen calibrated!\r\n");
+	} else {
+		printf("Touch screen needs calibration!\r\n");
+	}
   /* USER CODE END 2 */
 
   /* Init scheduler */

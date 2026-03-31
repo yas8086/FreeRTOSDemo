@@ -544,8 +544,8 @@ ARM Macro Assembler    Page 9
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\freertosdemo\startup_stm32f103xe.d -o.\freertosdemo\startup_stm3
-2f103xe.o -I../Core/Inc -I.\RTE\_FreeRTOSDemo -ID:\SoftWare\Keil_v5\Arm\Packs\A
-RM\CMSIS\5.7.0\CMSIS\Core\Include -ID:\SoftWare\Keil_v5\Arm\Packs\Keil\STM32F1x
+2f103xe.o -I../Core/Inc -I.\RTE\_FreeRTOSDemo -ID:\Software\Keil_v5\Arm\Packs\A
+RM\CMSIS\5.7.0\CMSIS\Core\Include -ID:\Software\Keil_v5\Arm\Packs\Keil\STM32F1x
 x_DFP\2.4.1\Device\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISI
 ON_VERSION SETA 532" --predefine="_RTE_ SETA 1" --predefine="STM32F10X_HD SETA 
 1" --predefine="_RTE_ SETA 1" --list=startup_stm32f103xe.lst startup_stm32f103x

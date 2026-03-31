@@ -26,6 +26,13 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "usart.h"
+#include "./BSP/LCD/lcd.h"
+#include "./BSP/LCD/chinese_font.h"
+#include "./BSP/KEY/key.h"
+#include "./BSP/TOUCH/touch.h"
+#include "./User/TFTLCDTouch/lcd_touch.h"
+#include "tim.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,6 +53,11 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
 uint8_t UART_BUF[8] = {0};
+extern const uint8_t dog_image[];
+
+/* PWM  */
+uint16_t Fan_PWM_Value = 0;  /* 初始值 */
+
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
@@ -66,7 +78,7 @@ osThreadId_t myTaskKeyHandle;
 const osThreadAttr_t myTaskKey_attributes = {
   .name = "myTaskKey",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityHigh,
 };
 /* Definitions for myQueue01 */
 osMessageQueueId_t myQueue01Handle;
@@ -223,13 +235,79 @@ void StartDefaultTask(void *argument)
 void StartTaskUsart(void *argument)
 {
   /* USER CODE BEGIN StartTaskUsart */
+	// 清屏
+	lcd_clear(WHITE);
+	//	//测试：图片展示
+//	lcd_show_image(80, 250, 321, 314, (uint8_t*)dog_image);
+	
+// 测试：四个角的四个色块
+	lcd_fill(0, 0, 100, 100, RED);      
+	lcd_fill(380, 0, 480, 100, GREEN);  
+	lcd_fill(0, 700, 100, 800, BLUE);   
+	lcd_fill(380, 700, 480, 800, YELLOW); 
+	
+	/* 标题 */
+//	lcd_show_string(180, 50, 200, 30, 24, "PWM Control", BLUE);
+	lcd_show_chinese_string(180, 50, 24, "风机PWM控制", BLUE, g_back_color);
+	
+	/* PWM 标签 */
+	lcd_show_string(150, 200, 200, 30, 24, "PWM Value:", BLACK);
+
+	/* 绘制按钮 1 - 快 */
+	lcd_draw_rectangle(BTN1_X, BTN1_Y, BTN1_X + BTN1_W, BTN1_Y + BTN1_H, GREEN);
+	lcd_fill(BTN1_X + 2, BTN1_Y + 2, BTN1_X + BTN1_W - 2, BTN1_Y + BTN1_H - 2, GREEN);
+	g_back_color = GREEN;
+	lcd_show_chinese_string(BTN1_X + 60, BTN1_Y + 30, 24, "快", BLACK, g_back_color);  // "快"
+	
+	/* 绘制按钮 2 - 慢 */
+	lcd_draw_rectangle(BTN2_X, BTN2_Y, BTN2_X + BTN2_W, BTN2_Y + BTN2_H, BLUE);
+	lcd_fill(BTN2_X + 2, BTN2_Y + 2, BTN2_X + BTN2_W - 2, BTN2_Y + BTN2_H - 2, BLUE);
+	g_back_color = BLUE;
+	lcd_show_chinese_string(BTN2_X + 60, BTN2_Y + 30, 24, "慢", WHITE, g_back_color);  // "慢"
+	
+	/* 绘制按钮 3 - 停 */
+	lcd_draw_rectangle(BTN3_X, BTN3_Y, BTN3_X + BTN3_W, BTN3_Y + BTN3_H, RED);
+	lcd_fill(BTN3_X + 2, BTN3_Y + 2, BTN3_X + BTN3_W - 2, BTN3_Y + BTN3_H - 2, RED);
+	g_back_color = RED;
+	lcd_show_chinese_string(BTN3_X + 100, BTN3_Y + 30, 24, "停", WHITE, g_back_color);  // "停"
+	
+	/* 恢复背景色 */
+	g_back_color = WHITE;
+	
+	/* 显示初始 PWM 值 */
+	lcd_show_num(280, 200, Fan_PWM_Value, 3, 24, RED);
   /* Infinite loop */
   for(;;)
   {
-//		HAL_USART_Transmit(&husart1,UART_BUF,8,0xffff);
-		printf("TaskUsart\n");
-    osDelay(3000);
-    osDelay(1);
+//		osDelay(50);
+		/* 触屏按钮检测 */
+		uint8_t touch_btn = Check_Touch_Button();
+		
+		if (touch_btn != 0) {
+			/* 有触屏按钮按下 */
+			switch (touch_btn) {
+				case 1:  /* 快按钮 */
+					if (Fan_PWM_Value < 100) {
+						Fan_PWM_Value += 1;
+					}
+					break;
+				case 2:  /* 慢按钮 */
+					if (Fan_PWM_Value > 0) {
+						Fan_PWM_Value -= 1;
+					}
+					break;
+				case 3:  /* 停按钮 */
+					Fan_PWM_Value = 0;
+					break;
+			}
+			/* 更新 PWM 显示 */
+		// 1 先用白色矩形擦除旧数字
+		lcd_fill(280, 200, 350, 230, WHITE);
+		// 2 再显示新数字
+		lcd_show_num(280, 200, Fan_PWM_Value, 3, 24, RED);
+		__HAL_TIM_SET_COMPARE(&htim8, TIM_CHANNEL_1, Fan_PWM_Value);
+		}
+	
   }
   /* USER CODE END StartTaskUsart */
 }
@@ -247,51 +325,33 @@ void StartTaskKey(void *argument)
   /* Infinite loop */
   for(;;)
   {
-		if(HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == 1)
-	  {
-			//按键消抖
-			osDelay(100);
-			if(HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == 1)
-			{
-				vTaskSuspendAll();
-				printf("\n按键成功\n");
-				xTaskResumeAll();
-			  
-				//======================获得============================
-				//osMutexWait  === >  获取互斥对象或等待它变为可用
-				if((osMutexWait(myMutex01Handle,osWaitForever) == osOK))
-				{
-					vTaskSuspendAll();
-					printf("\n获得成功\r\n");
-					xTaskResumeAll();
-				}else
-				{
-					vTaskSuspendAll();
-					printf("\n获得失败\r\n");
-					xTaskResumeAll();
-
-				}
-				//======================释放============================
-				//osMutexRelease === >  释放一个互斥量
-				if((osMutexRelease(myMutex01Handle) == osOK))
-				{
-					vTaskSuspendAll();
-					printf("\n释放成功\r\n");
-					xTaskResumeAll();
-				}else
-				{
-					vTaskSuspendAll();
-					printf("\n释放失败\r\n");
-					xTaskResumeAll();
-
-				}
-				while(HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == 1)
-				{
-					osDelay(100);
-				}
-			}
-		}
-    osDelay(1);
+		osDelay(200);  /* 200ms 扫描周期 */
+    
+    /* 扫描按键，支持连按 */
+    uint8_t key_val = key_scan(1);
+    
+    /* 如果有按键按下，直接处理 */
+    if (key_val != 0) {
+      switch (key_val) {
+        case 1:  /* KEY1 - 增加 */
+          if (Fan_PWM_Value < 100) {
+            Fan_PWM_Value += 1;           
+          }
+          break;
+        case 2:  /* KEY0 - 减少 */
+          if (Fan_PWM_Value > 0) {
+            Fan_PWM_Value -= 1;
+          }
+          break;
+        case 3:  /* KEY_UP - 停止 */
+          Fan_PWM_Value = 0;
+          break;
+      }
+			__HAL_TIM_SET_COMPARE(&htim8, TIM_CHANNEL_1, Fan_PWM_Value);
+			/* 更新显示 */
+			lcd_fill(280, 200, 350, 230, WHITE);
+			lcd_show_num(280, 200, Fan_PWM_Value, 3, 24, RED);
+    }
   }
   /* USER CODE END StartTaskKey */
 }

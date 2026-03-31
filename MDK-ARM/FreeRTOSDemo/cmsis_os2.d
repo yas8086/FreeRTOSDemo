@@ -1,8 +1,8 @@
 .\freertosdemo\cmsis_os2.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c
-.\freertosdemo\cmsis_os2.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\freertosdemo\cmsis_os2.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\freertosdemo\cmsis_os2.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
-.\freertosdemo\cmsis_os2.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\freertosdemo\cmsis_os2.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\freertosdemo\cmsis_os2.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\freertosdemo\cmsis_os2.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\freertosdemo\cmsis_os2.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 .\freertosdemo\cmsis_os2.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 .\freertosdemo\cmsis_os2.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h

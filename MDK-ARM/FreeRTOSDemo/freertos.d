@@ -1,7 +1,7 @@
 .\freertosdemo\freertos.o: ../Core/Src/freertos.c
 .\freertosdemo\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-.\freertosdemo\freertos.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\freertosdemo\freertos.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\freertosdemo\freertos.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\freertosdemo\freertos.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\freertosdemo\freertos.o: ../Core/Inc/FreeRTOSConfig.h
 .\freertosdemo\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 .\freertosdemo\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
@@ -34,6 +34,8 @@
 .\freertosdemo\freertos.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
 .\freertosdemo\freertos.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 .\freertosdemo\freertos.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
+.\freertosdemo\freertos.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_sram.h
+.\freertosdemo\freertos.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_fsmc.h
 .\freertosdemo\freertos.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
 .\freertosdemo\freertos.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 .\freertosdemo\freertos.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
@@ -42,4 +44,13 @@
 .\freertosdemo\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 .\freertosdemo\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 .\freertosdemo\freertos.o: ../Core/Inc/usart.h
-.\freertosdemo\freertos.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\freertosdemo\freertos.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\freertosdemo\freertos.o: ../Drivers/./BSP/LCD/lcd.h
+.\freertosdemo\freertos.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\freertosdemo\freertos.o: ../Drivers/./BSP/LCD/chinese_font.h
+.\freertosdemo\freertos.o: ../Drivers/./BSP/KEY/key.h
+.\freertosdemo\freertos.o: ../Drivers/./BSP/TOUCH/touch.h
+.\freertosdemo\freertos.o: ../Drivers/./BSP/TOUCH/gt9xxx.h
+.\freertosdemo\freertos.o: ../Drivers/./BSP/TOUCH/ft5206.h
+.\freertosdemo\freertos.o: ../App/./User/TFTLCDTouch/lcd_touch.h
+.\freertosdemo\freertos.o: ../Core/Inc/tim.h

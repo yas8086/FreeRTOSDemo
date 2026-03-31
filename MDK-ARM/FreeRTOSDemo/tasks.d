@@ -1,9 +1,9 @@
 .\freertosdemo\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/tasks.c
-.\freertosdemo\tasks.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\freertosdemo\tasks.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\freertosdemo\tasks.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\freertosdemo\tasks.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\freertosdemo\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-.\freertosdemo\tasks.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\freertosdemo\tasks.o: D:\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\freertosdemo\tasks.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\freertosdemo\tasks.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\freertosdemo\tasks.o: ../Core/Inc/FreeRTOSConfig.h
 .\freertosdemo\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 .\freertosdemo\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
